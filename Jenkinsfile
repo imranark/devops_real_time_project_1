@@ -46,6 +46,10 @@ pipeline {
                     -Dsonar.token=$sonar_token'
             }
         } 
-       
+        stage('COPY JAR & DOCKERFILE') {
+            steps {
+                sh 'ansible-playbook playbooks/create_directory.yml'
+            }
+        }
     }
 }      
